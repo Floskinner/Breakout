@@ -1,13 +1,22 @@
 let gm;
+let punkteanzeige;
 let speedBall;
+let restartButton;
 
 function setup(){
   let cv = createCanvas(windowWidth - 20, windowHeight - 150);
   cv.parent('canvas');
   background(51);
 
+  punkteanzeige = createP();
+  punkteanzeige.parent('punkte');
+
   speedBall = createSlider(1, 15, 6, 0.5);
   speedBall.parent("controller");
+
+  restartButton = createButton('restart', 'restart');
+  restartButton.parent("controller");
+  restartButton.mousePressed(restartGame);
 
   gm = new GameMaster();
 }
@@ -17,20 +26,13 @@ function draw(){
   gm.playGame();
 }
 
+function restartGame(){
+  gm = new GameMaster();
+}
+
 class GameMaster{
-  constructor(spieler, ball){
-    this.spieler = new Spieler();
-    this.ball = new Ball();
-    this.gegnerManager = new GegnerManager();
-
-    this.punkte = 0;
-    this.punkteanzeige = createP(this.punkte);
-    this.punkteanzeige.parent('punkte');
-
-    let zeitBisNeueLinie = 10000;
-    this.newGegnerInterval = setInterval( this.createNewLine.bind(this), zeitBisNeueLinie);
-
-    this.gameOver = false;
+  constructor(){
+    this.newGame();
   }
 
   playGame(){
@@ -70,6 +72,19 @@ class GameMaster{
     textAlign(CENTER);
     text(textGameOver, width / 2, height / 2);
     text(textPunkte, width / 2, height / 2 + 32 );
+  }
+
+  newGame(){
+    this.spieler = new Spieler();
+    this.ball = new Ball();
+    this.gegnerManager = new GegnerManager();
+
+    this.punkte = 0;
+
+    let zeitBisNeueLinie = 10000;
+    this.newGegnerInterval = setInterval( this.createNewLine.bind(this), zeitBisNeueLinie);
+
+    this.gameOver = false;
   }
 
   createNewLine(){
@@ -115,7 +130,7 @@ class GameMaster{
   }
 
   updatePunkteanzeige(){
-    this.punkteanzeige.html(this.punkte);
+    punkteanzeige.html(this.punkte);
   }
 
 }
