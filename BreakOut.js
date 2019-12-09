@@ -11,9 +11,21 @@ function setup(){
   punkteanzeige = createP();
   punkteanzeige.parent('punkte');
 
-  speedBall = createSlider(1, 15, 6, 0.5);
-  speedBall.parent("controller");
 
+// ==== Add DOM elemets === //
+// ======================== //
+
+// == Add Speedcontroll of the Ball == \\
+  let divSpeedBall = createDiv();
+  divSpeedBall.parent("controller");
+
+  let beschreibungSpeed = createSpan("Change the Speed from the Ball:  ");
+  speedBall = createSlider(1, 15, 6, 0.5);
+
+  divSpeedBall.child(beschreibungSpeed);
+  divSpeedBall.child(speedBall);
+
+// == Add Restart Button == \\
   restartButton = createButton('restart', 'restart');
   restartButton.parent("controller");
   restartButton.mousePressed(restartGame);
