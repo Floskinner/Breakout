@@ -87,4 +87,15 @@ class GegnerManager {
       }
     }
   }
+
+  showDeadline(){
+    let x = 1;
+    let y = this.grid[x].length - 1;
+    let lastGegner = this.grid[x][y];
+    let yPosition  = lastGegner.yPosition;
+
+    stroke(255, 0, 0);
+    line(0, yPosition, width, yPosition);
+    stroke(0);
+  }
 }
