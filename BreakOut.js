@@ -43,6 +43,7 @@ class GameMaster{
       this.checkGegnerKollision();
 
       this.gegnerManager.showGrid();
+      this.gegnerManager.showDeadline();
 
       this.updatePunkteanzeige();
       this.checkGameOver();
@@ -51,6 +52,7 @@ class GameMaster{
       this.spieler.show();
       this.ball.show();
       this.gegnerManager.showGrid();
+      this.gegnerManager.showDeadline();
       this.showGameOver();
 
       clearInterval(this.newGegnerInterval);
