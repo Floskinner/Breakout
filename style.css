@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#punkte{
+  margin: 15px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#controller{
+  text-align: center;
+}
+
+#divSpeedBall {
+  margin: 5px;
+}
+
+.slider{
+  vertical-align: middle;
+}
+
+.textSlider {
+  margin-right: 5px;
+}
+
+
+#restartButton {
+	font-family:Arial;
+	font-size:13px;
+  margin: 5px;
+}
+#restartButton:hover {
+	background:linear-gradient(to bottom, #999999 5%, #787878 100%);
+	background-color:#c62d1f;
+}
+#restartButton:active {
+	position:relative;
+	top:1px;
+}

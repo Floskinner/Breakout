@@ -18,16 +18,20 @@ function setup(){
 // == Add Speedcontroll of the Ball == \\
   let divSpeedBall = createDiv();
   divSpeedBall.parent("controller");
+  divSpeedBall.id("divSpeedBall");
 
   let beschreibungSpeed = createSpan("Change the Speed from the Ball:  ");
+  beschreibungSpeed.class("textSlider");
   speedBall = createSlider(1, 15, 6, 0.5);
+  speedBall.class("slider");
 
   divSpeedBall.child(beschreibungSpeed);
   divSpeedBall.child(speedBall);
 
 // == Add Restart Button == \\
-  restartButton = createButton('restart', 'restart');
+  restartButton = createButton('Restart');
   restartButton.parent("controller");
+  restartButton.id("restartButton");
   restartButton.mousePressed(restartGame);
 
   gm = new GameMaster();
@@ -144,7 +148,8 @@ class GameMaster{
   }
 
   updatePunkteanzeige(){
-    punkteanzeige.html(this.punkte);
+    let textPunkte = 'Punkte: ' + this.punkte
+    punkteanzeige.html(textPunkte);
   }
 
 }
