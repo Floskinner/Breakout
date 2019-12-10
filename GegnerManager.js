@@ -94,7 +94,7 @@ class GegnerManager {
     let lastGegner = this.grid[x][y];
     let yPosition  = lastGegner.yPosition;
 
-    stroke(255, 0, 0);
+    stroke(87, 87, 87);
     line(0, yPosition, width, yPosition);
     stroke(0);
   }
